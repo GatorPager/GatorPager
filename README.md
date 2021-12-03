@@ -1,4 +1,5 @@
-# GatorPager
+# GatorPages
+
 
 A webpage search visualizer
 
