@@ -20,7 +20,6 @@ int hashFunction(int nodeID)
 	return nodeID % 10000;
 }
 struct Node {
-	int adjListIdx = 0;
 	int id;
 	string url;
 	Node(vector<string>& data) {
