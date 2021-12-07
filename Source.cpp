@@ -39,6 +39,7 @@ vector<vector<Node*>>* createAdjList();
 void splitString(char delimiter, string  str, vector<string>& values);
 Node bfs(vector<vector<Node*>>* adjList, string url);
 Node dfs(vector<vector<Node*>>* adjList, string url);
+vector<Node*>* similarNode(vector<vector<Node*>>* adjList, Node foundNode);
 
 int main()
 {
@@ -57,6 +58,14 @@ int main()
 	t2 = clock();
 	cout << "comp time dfs: " << timer(t1, t2) << endl;
 	cout << "Node Id: " << foundNode.id << " Node url: " << foundNode.url << endl;
+	t1 = clock();
+	vector<Node*>* similar = similarNode(adjList, foundNode);
+	t2 = clock();
+	cout << "comp time similar: " << timer(t1, t2) << endl;
+	for (int i = 0; i < similar->size(); i++)
+	{
+		cout << "Node Id: " << similar->at(i)->id << " Node url: " << similar->at(i)->url << endl;
+	}
 	return 0;
 }
 
@@ -114,14 +123,11 @@ Node bfs(vector<vector<Node*>>* adjList, string url) // arbitrary thing
 	queue<Node> q;
 	q.push(*adjList->at(0).at(0));
 	string currURL;
-
-	int count = 0;
 	while (!q.empty())
 	{
 		Node currNode = q.front(); // 63002-base // 63002	92769
 		q.pop();
 		currURL = currNode.url; // www.awn.com
-		count++;
 		//evaluation of current Node
 		//if not equal
 		if (currURL.compare(url) != 0)
@@ -163,14 +169,11 @@ Node dfs(vector<vector<Node*>>* adjList, string url)
 	stack<Node> s;
 	s.push(*adjList->at(0).at(0));
 	string currURL;
-
-	int count = 0;
 	while (!s.empty())
 	{
 		Node currNode = s.top(); // 63002-base // 63002	92769
 		s.pop();
 		currURL = currNode.url; // www.awn.com
-		count++;
 		//evaluation of current Node
 		//if not equal
 		if (currURL.compare(url) != 0)
@@ -203,4 +206,48 @@ Node dfs(vector<vector<Node*>>* adjList, string url)
 	}
 	Node temp;
 	return temp;
+}
+
+vector<Node*>* similarNode(vector<vector<Node*>>* adjList, Node foundNode)
+{
+	vector<vector<int>> visited(10000);
+	vector<Node*>* adjNodes = new vector<Node*>();
+	visited.at(hashFunction(foundNode.id)).push_back(foundNode.id);
+	queue<Node> q;
+	q.push(foundNode);
+	string currURL;
+
+	while (!q.empty())
+	{
+		Node currNode = q.front(); // 63002-base // 63002	92769
+		q.pop();
+		currURL = currNode.url; // www.awn.com
+		//evaluation of current Node
+		//if not equal
+		bool isVisited = false;
+		for (int i = 0; i < adjList->at(currNode.id).size(); i++)
+		{
+			Node* temp = adjList->at(currNode.id).at(i); // 92769
+			for (int j = 0; j < visited.at(hashFunction(temp->id)).size(); j++)
+			{
+				if (temp->id == visited.at(hashFunction(temp->id)).at(j))
+				{
+					isVisited = true;
+					break;
+				}
+			}
+			//add to queue considering it has NOT been visited
+			if (!isVisited)
+			{
+				visited.at(hashFunction(temp->id)).push_back(temp->id);
+				q.push(*temp);
+				adjNodes->push_back(temp);
+				if (adjNodes->size() >= 100)
+					break;
+			}
+		}
+		if (adjNodes->size() >= 100)
+			break;
+	}
+	return adjNodes;
 }
