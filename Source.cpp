@@ -20,6 +20,7 @@ int hashFunction(int nodeID)
 	return nodeID % 10000;
 }
 struct Node {
+	int adjListIdx = 0;
 	int id;
 	string url;
 	Node(vector<string>& data) {
@@ -39,7 +40,7 @@ vector<vector<Node*>>* createAdjList();
 void splitString(char delimiter, string  str, vector<string>& values);
 Node bfs(vector<vector<Node*>>* adjList, string url);
 Node dfs(vector<vector<Node*>>* adjList, string url);
-vector<Node*>* similarNode(vector<vector<Node*>>* adjList, Node foundNode);
+void similarNode(vector<vector<Node*>>* adjList, Node foundNode);
 
 int main()
 {
@@ -59,13 +60,10 @@ int main()
 	cout << "comp time dfs: " << timer(t1, t2) << endl;
 	cout << "Node Id: " << foundNode.id << " Node url: " << foundNode.url << endl;
 	t1 = clock();
-	vector<Node*>* similar = similarNode(adjList, foundNode);
+	similarNode(adjList, foundNode);
 	t2 = clock();
 	cout << "comp time similar: " << timer(t1, t2) << endl;
-	for (int i = 0; i < similar->size(); i++)
-	{
-		cout << "Node Id: " << similar->at(i)->id << " Node url: " << similar->at(i)->url << endl;
-	}
+
 	return 0;
 }
 
@@ -208,20 +206,18 @@ Node dfs(vector<vector<Node*>>* adjList, string url)
 	return temp;
 }
 
-vector<Node*>* similarNode(vector<vector<Node*>>* adjList, Node foundNode)
+void similarNode(vector<vector<Node*>>* adjList, Node foundNode)
 {
+	fstream out("out.csv", fstream::out);
 	vector<vector<int>> visited(10000);
-	vector<Node*>* adjNodes = new vector<Node*>();
 	visited.at(hashFunction(foundNode.id)).push_back(foundNode.id);
 	queue<Node> q;
 	q.push(foundNode);
-	string currURL;
-
+	int count = 0;
 	while (!q.empty())
 	{
 		Node currNode = q.front(); // 63002-base // 63002	92769
 		q.pop();
-		currURL = currNode.url; // www.awn.com
 		//evaluation of current Node
 		//if not equal
 		bool isVisited = false;
@@ -241,13 +237,14 @@ vector<Node*>* similarNode(vector<vector<Node*>>* adjList, Node foundNode)
 			{
 				visited.at(hashFunction(temp->id)).push_back(temp->id);
 				q.push(*temp);
-				adjNodes->push_back(temp);
-				if (adjNodes->size() >= 100)
+				out << currNode.id << "," << temp->id << "," << temp->url << "\n";
+				count++;
+				if (count >= 100)
 					break;
 			}
 		}
-		if (adjNodes->size() >= 100)
+		if (count >= 100)
 			break;
 	}
-	return adjNodes;
+	out.close();
 }
