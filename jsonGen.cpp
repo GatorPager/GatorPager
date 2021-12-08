@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <set>
+#include <stdlib.h>     /* srand, rand */
+#include <set>          /* set */
 using namespace std;
 
 set<string> splitString(string str);
@@ -9,6 +10,8 @@ void linkJSON(set<string> s, ofstream* ofs);
 
 int main() 
 {
+  srand(1000);
+  
   //read file
   string input = "";
   string firstNode = "";
@@ -89,16 +92,25 @@ void linkJSON(set<string> s, ofstream* ofs)
   set<string>::iterator it = sCopy.begin();
   string firstURL = *it;
   int sCopySize = sCopy.size();
+  int randNum;
+  string currURL, randURL;
   for(int i = 0; i < sCopySize; i++)
   {
     it = sCopy.begin();
     string currURL = *it;
     sCopy.erase(currURL);
     it = sCopy.begin();
-    if(i == (sCopySize - 1))
-      *ofs << "{ \"source\":\"" << currURL << "\", \"target\":\"" << firstURL << "\"}\n";
-    else
-      *ofs << "{ \"source\":\"" << currURL << "\", \"target\":\"" << *it << "\"},\n";
+    if(it != sCopy.end())
+    {
+      randNum = rand() % sCopy.size() - 1;
+      for(int i = 0; i < randNum; i++)
+        it++;
+      randURL = *it;
+      if(sCopy.size() == 1)
+        *ofs << "{ \"source\":\"" << currURL << "\", \"target\":\"" << randURL << "\"}\n";
+      else
+        *ofs << "{ \"source\":\"" << currURL << "\", \"target\":\"" << randURL << "\"},\n";
+    }
   }
   *ofs << "]\n";
   *ofs << "}";
