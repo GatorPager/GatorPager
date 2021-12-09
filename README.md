@@ -2,10 +2,16 @@
 
 # Getting Started with GatorPages
 
-This project's goal is to comprehend the grasp of how efficient large platform web search applications (Google.com, Yahoo.com, Bing.com) search and 
-## Available Scripts
+This project's goal is to comprehend the grasp of how efficient large platform web search applications (Google.com, Yahoo.com, Bing.com) search with great speed. And allso how important the design and implementaion of algorithms are.
 
-In the project directory, you can run:
+## initial setup
+cd ./GatorPager
+`npm install`
+To install nodes dependencies and libraries.
+cd ./frontend
+
+Again `npm install` to install reacts dependencies and libraries.
+After completing initial steps, all depedencies and libraries should be installed.
 
 ### `npm start`
 
