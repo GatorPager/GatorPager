@@ -1,6 +1,6 @@
 # GatorPages
 
-<img src='GatorPager/Hnet-image.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='Hnet-image.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 # Getting Started with GatorPages
 
