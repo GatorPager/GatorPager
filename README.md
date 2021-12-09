@@ -4,7 +4,7 @@
 
 # Getting Started with GatorPages
 
-This project's goal is to comprehend the grasp of how efficient large platform web search applications (Google.com, Yahoo.com, Bing.com) search with great speed. And allso how important the design and implementaion of algorithms are.
+This project's goal is to comprehend the grasp of how efficient large platform web search applications (Google.com, Yahoo.com, Bing.com) search with great speed. And also how important the design and implementaion of algorithms are. Since we are implementing a naive approach with BFS (Bredth Firsdt Search) and DFS (Depth First Search).
 
 ## initial setup
 cd ./GatorPager
