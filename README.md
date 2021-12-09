@@ -1,6 +1,6 @@
 # GatorPages
 
-<img src='https://media.giphy.com/media/H6Edgg4KAitD6urn87/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 # Getting Started with GatorPages
 
