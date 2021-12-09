@@ -2,6 +2,7 @@ const express = require('express')
 const { exec } = require("child_process");
 const axios = require('axios');
 
+fs = require('fs');
 
 const app = express()
 const port = 5000
@@ -10,7 +11,6 @@ const usersData= [];
 
 
 app.get('/', (req, res) => {
-  console.log("working")
 
   res.send('Hello World!')
 })
@@ -28,8 +28,16 @@ app.get('/search', (req, res) => {
 //     }
 //     console.log(`stdout: ${stdout}`);
 // });
+const test = "www.ufl.edu"
+fs.writeFile('./frontend/src/search.txt', test, function (err) {
+  if (err) return console.log(err);
+});
 
-exec("cd frontend; cd src; ./main", (error, stdout, stderr) => {
+app.get('/post_search', (req, res) => {
+  console.log("testing");
+})
+
+exec("cd frontend/src; python3 graph.py", (error, stdout, stderr) => {
   if (error) {
       console.log(`error: ${error.message}`);
       return;
@@ -41,7 +49,6 @@ exec("cd frontend; cd src; ./main", (error, stdout, stderr) => {
   console.log(`stdout: ${stdout}`);
 });
 
-  res.send('Hello World!')
 })
 
 app.listen(port, () => {

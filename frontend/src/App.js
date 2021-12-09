@@ -2,6 +2,8 @@ import "./App.css";
 import React, { Component } from "react";
 import Graph from "./Graph";
 import axios from "axios"
+import sample from "./sample.json";
+
 
 // sign in form with react
 
@@ -14,7 +16,12 @@ class App extends Component {
       passwordConfirmation: "",
       email: "",
       errors: [],
-      value: ""
+      value: "",
+      time1: 0,
+      time2: 0,
+      iterations: 0,
+      data : sample
+
     };
     this.validatingUserOnBlur = this.validatingUserOnBlur.bind(this);
     this.validatePasswordOnBlur = this.validatePasswordOnBlur.bind(this);
@@ -46,11 +53,26 @@ class App extends Component {
       // console.log(response);
     })
 
-  
-    
-
-
   }
+
+
+   handleSaveToPC = jsonData => {
+    const fileData = JSON.stringify(jsonData);
+    const blob = new Blob([fileData], {type: "text/plain"});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.download = 'filename.json';
+    link.href = url;
+    link.click();
+  }
+  
+
+  sendData = () => {
+axios.post("/post_search", this.state.search)
+   .then(res => console.log(this.state.data))
+   .catch(err => console.log(err.data))
+}
+
 
   submitForm(event) {
     event.preventDefault();
@@ -122,8 +144,9 @@ class App extends Component {
             type="text"
             className="input"
             onBlur={this.validatePasswordOnBlur}
-            value={this.state.value} 
+            value={this.state.data.search} 
             onChange={this.handleChange}
+            onSubmit={this.sendData}
           />
           <div className="cut" />
           <label htmlFor="search" className="placeholder">
@@ -138,7 +161,7 @@ class App extends Component {
             type="text"
             required={true}
             readOnly={true}
-            value="Iterated 20,000 Pages"
+            value={"Iterated: " + this.state.data.iterations + " Pages🐊"}
             className="input"
             onBlur={this.validatePasswordOnBlur}
           />
@@ -155,13 +178,13 @@ class App extends Component {
             type="text"
             required={true}
             readOnly={true}
-            value="0.003 seconds"
+            value={"Time elapsed: " + this.state.data.dfs_time + " sec"}
             className="input"
             onBlur={this.validatePasswordOnBlur}
           />
           <div className="cut" />
           <label htmlFor="password" className="placeholder">
-            Bellman Ford's
+            DFS
           </label>
         </div>
         <br />
@@ -171,13 +194,13 @@ class App extends Component {
             type="text"
             required={true}
             readOnly={true}
-            value="0.003 seconds"
+            value={"Time elapsed: " + this.state.data.bfs_time + " sec"}
             className="input"
             onBlur={this.validatePasswordOnBlur}
           />
           <div className="cut" />
           <label htmlFor="password" className="placeholder">
-            Dijkstra's {this.state.password}
+            BFS {this.state.password}
           </label>
         </div>
 
@@ -191,7 +214,7 @@ class App extends Component {
         {
           //   // event handler for displaying submission response.
         }
-        <button onClick={this.handleButtonClick} className="submit">
+        <button onClick={this.handleButtonClick, this.getTime1, this.getTime2} className="submit">
           Search
         </button>
       </div>
@@ -204,8 +227,8 @@ class App extends Component {
         <Graph className="form"></Graph>
 
         <div className="sidebar">
-          <div className="title">GatorPages</div>
-          <div className="subtitle">A recommended links visualizer</div>
+          <div className="title">GatorPages ፨</div>
+          <div className="subtitle">A suggested search graph visualizer</div>
           {this.displayErrors()}
 
           <div className="form">{this.displayFormDemo()}</div>
