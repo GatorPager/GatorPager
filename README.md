@@ -29,16 +29,21 @@ Start python script for searching:  In "./GatorPager/frontend/src" run `python3 
 
 
 ### Done.
-Enter any keyword for searching and wait for results. Results will be rendered in [http:localhost:300]
+Enter any keyword for searching and wait for results. Results will be rendered in [http:localhost:300].
 
 
 ### Q&A
 ### How long should searching take? 
 It depends on where the node is positioned in the adjancy list. 
-Closer to nodes to the beginning will fun faster than latter nodes.
+Nodes closer to  to the beginning will fun faster than latter nodes.
 
 ### Can you contribute?
 Yes please get in contact with the repos owner for further instructions and guidelines.
 
 ### How to add a new data set?
 Simply update the data.csv with the new data
+
+### Where to learn more about the performance and devolopment proccess.
+Please refer to the analysis.md in ./GatorPager
+
+### Thank you.
