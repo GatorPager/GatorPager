@@ -5,20 +5,20 @@
 This project's goal is to comprehend the grasp of how efficient large platform web search applications (Google.com, Yahoo.com, Bing.com) search with great speed. And allso how important the design and implementaion of algorithms are.
 
 ## initial setup
-cd ./GatorPager\
+cd ./GatorPager
 
-`npm install`\
+`npm install`
 
-To install nodes dependencies and libraries.\
+To install nodes dependencies and libraries.
 
 cd ./frontend
 
 Again `npm install` to install reacts dependencies and libraries.\
 After completing initial steps, all depedencies and libraries should be installed.\
 
-### `npm start`
+# Running GatorPages
 ### Open new terminal.
-Start express server: In "./GatorPager" run `node app.js`.\
+Start express server: In "./GatorPager" run `node app.js`.
 
 ### In new terminal tab.
 Start react app: In "./GatorPager/frontend/src" run 'npm start.
@@ -38,7 +38,7 @@ It depends on where the node is positioned in the adjancy list.
 Nodes closer to  to the beginning will fun faster than latter nodes.
 
 ### Can you contribute?
-Yes please get in contact with the repos owner for further instructions and guidelines.
+Yes, please get in contact with the repos owner for further instructions and guidelines.
 
 ### How to add a new data set?
 Simply update the data.csv with the new data
