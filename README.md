@@ -40,7 +40,7 @@ It depends on where the node is positioned in the adjancy list.
 Nodes closer to  to the beginning will fun faster than latter nodes.
 
 ### Can you contribute?
-Yes, please get in contact with the repos owner for further instructions and guidelines.
+Yes, please get in contact with the repo's owners for further instructions and guidelines.
 
 ### How to add a new data set?
 Simply update the data.csv with the new data
@@ -48,4 +48,4 @@ Simply update the data.csv with the new data
 ### Where to learn more about the performance and devolopment proccess.
 Please refer to the analysis.md in ./GatorPager
 
-### Thank you.
+### Thank you 😎
