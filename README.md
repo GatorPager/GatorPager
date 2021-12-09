@@ -1,5 +1,7 @@
 # GatorPages
 
+<img src='https://media.giphy.com/media/H6Edgg4KAitD6urn87/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 # Getting Started with GatorPages
 
 This project's goal is to comprehend the grasp of how efficient large platform web search applications (Google.com, Yahoo.com, Bing.com) search with great speed. And allso how important the design and implementaion of algorithms are.
