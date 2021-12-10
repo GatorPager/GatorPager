@@ -52,6 +52,6 @@ Yes, please get in contact with the repo's owners for further instructions and g
 Simply update the data.csv with the new data
 
 ### Where to learn more about the performance and devolopment proccess.
-Please refer to the analysis.md in ./GatorPager
+Please refer to the analysis.pdf in ./GatorPager
 
 ### Thank you 😎
