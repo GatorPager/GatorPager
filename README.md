@@ -40,7 +40,7 @@ Enter any keyword for searching and wait for results. Results will be rendered i
 ### Q&A
 ### How long should searching take? 
 It depends on where the node is positioned in the adjancy list. 
-Nodes closer to  to the beginning will fun faster than latter nodes.
+Nodes closer to  to the beginning will run faster than latter nodes.
 
 ### Can you contribute?
 Yes, please get in contact with the repo's owners for further instructions and guidelines.
