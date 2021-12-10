@@ -10,13 +10,13 @@ YOUTUBE: [https://youtu.be/2-z07tp1g1M]
 This project's goal is to comprehend the grasp of how efficient large platform web search applications (Google.com, Yahoo.com, Bing.com) execute search with great speed. And also how important the design and implementaion of algorithms are. We display this by doing a BFS (Bredth Firsdt Search) and DFS (Depth First Search) to see how an algorithm can significantly affect the speed of a program.
 
 ## initial setup
-cd ./GatorPager
+`cd ./GatorPager`
 
 `npm install`
 
 To install nodes dependencies and libraries.
 
-cd ./frontend
+`cd ./frontend`
 
 Again `npm install` to install reacts dependencies and libraries.\
 After completing initial steps, all depedencies and libraries should be installed.\
@@ -52,6 +52,6 @@ Yes, please get in contact with the repo's owners for further instructions and g
 Simply update the data.csv with the new data
 
 ### Where to learn more about the performance and devolopment proccess.
-Please refer to the analysis.pdf in ./GatorPager
+Please refer to the analysis.pdf in `./GatorPager`
 
 ### Thank you 😎
