@@ -40,7 +40,7 @@ Enter any keyword for searching and wait for results. Results will be rendered i
 # Note
 **To view BFS and DFS implementatin go to frontend/src/graph.py**
 
-### Q&A
+# Q&A
 ### How long should searching take? 
 It depends on where the node is positioned in the adjancy list. 
 Nodes closer to  to the beginning will run faster than latter nodes.
