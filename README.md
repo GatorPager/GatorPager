@@ -32,13 +32,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### Open additional terminal tab
 Start python script for searching:  In "./GatorPager/frontend/src" run `python3 graph.py` 
 
-#Note
-To view BFS and DFS implementation, head over frontend/src/graph.py
+
 
 ### Done.
 Enter any keyword for searching and wait for results. Results will be rendered in [http:localhost:300].
 
-#Note
+# Note
 **To view BFS and DFS implementatin go to frontend/src/graph.py**
 
 ### Q&A
