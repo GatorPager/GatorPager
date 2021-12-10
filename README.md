@@ -36,6 +36,8 @@ Start python script for searching:  In "./GatorPager/frontend/src" run `python3 
 ### Done.
 Enter any keyword for searching and wait for results. Results will be rendered in [http:localhost:300].
 
+#Note
+**To view BFS and DFS implementatin go to frontend/src/graph.py**
 
 ### Q&A
 ### How long should searching take? 
